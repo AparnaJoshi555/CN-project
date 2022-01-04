@@ -8,5 +8,6 @@ client folder includes the code for client which meets the requirements :
    <li>Read a file</li>
    <li>Delete a file</li>
 </ol>
+
 Server folder contains the code for server
      
