@@ -21,9 +21,11 @@ while True:
            f = open(text,"x")
            c.send(bytes("File created", "utf-8"))
            print("File created")
+           f.close()
         except:
            c.send(bytes("FILE ALREADY PRESENT", "utf-8"))
            print("FILE ALREADY PRESENT")
+
     elif(a =='2'):
         text = "A:/Python/"+file_name
         try:
@@ -32,10 +34,11 @@ while True:
            content=f.read()
            print(content)
            c.send(bytes(content, "utf-8"))
-
+           f.close()
         except:
             c.send(bytes("FILE NOT EXIST!!!", "utf-8"))
             print("FILE NOT EXIST!!!")
+
     elif(a == '3'):
         text = "A:/Python/"+file_name
         try:
@@ -43,18 +46,21 @@ while True:
             req_edit = c.recv(1024).decode()
             f.write(req_edit)
             c.send(bytes("File edited", "utf-8"))
-
+            f.close()
         except:
             c.send(bytes("FILE NOT EXIST!!!", "utf-8"))
             print("FILE NOT EXIST!!!")
+
     elif (a == '4'):
         text = "A:/Python/"+file_name
         try:
             os.remove(text)
             c.send(bytes("File deleted", "utf-8"))
             print("File deleted")
+            f.close()
         except:
             c.send(bytes("FILE NOT EXIST!!!", "utf-8"))
             print("FILE NOT EXIST!!!")
+
 c.close()
 
