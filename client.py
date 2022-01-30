@@ -1,7 +1,7 @@
 import socket
 c=socket.socket()
 
-1
+
 addr=input("Enter IP address : ")
 c.connect((addr,9999))
 #c.send(bytes('Hello ',"utf-8"))
@@ -12,7 +12,7 @@ print("\n\t->>>Create a file( Syntax : create <file_name.txt> )")
 print("\n\t->>>Read a file( Syntax   : cat <file_name.txt> )")
 print("\n\t->>>Write a file( Syntax  : edit <file_name.txt> )")
 print("\n\t->>>Delete a file( Syntax : delete <file_name.txt> )")
-print("\n\t->>>Exit( Syntax : exit or Exit)
+print("\n\t->>>Exit( Syntax : exit or Exit)")
 
 
 print("\n")
@@ -51,6 +51,8 @@ while True:
         print(delete_file)
         #break
     elif (inp=='exit' or inp=='Exit'):
+        c.send(bytes("5","utf-8"))
+        print('...CONNECTION DECLINED...')
         quit()
     else:
         print("Wrong Command")

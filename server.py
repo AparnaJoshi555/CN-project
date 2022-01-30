@@ -32,7 +32,7 @@ while True:
 
            f = open(text,"r")
            content=f.read()
-           print(content)
+           #print(content)
            c.send(bytes(content, "utf-8"))
            f.close()
         except:
@@ -46,6 +46,7 @@ while True:
             #c.send(bytes("FILE OPENED", "utf-8"))
             req_edit = c.recv(1024).decode()
             f.write(req_edit)
+            print("File edited")
             c.send(bytes("File edited", "utf-8"))
             f.close()
         except:
@@ -63,6 +64,10 @@ while True:
         except:
             c.send(bytes("FILE NOT EXIST!!!", "utf-8"))
             print("FILE NOT EXIST!!!")
+    elif(a == '5'):
+        print('exited from server')
+        quit()
+
 
 c.close()
 
