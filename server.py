@@ -20,7 +20,7 @@ while True:
 
            f = open(text,"x")
            c.send(bytes("File created", "utf-8"))
-           print("File created")
+           print("FILE CREATED")
            f.close()
         except:
            c.send(bytes("FILE ALREADY PRESENT", "utf-8"))
@@ -45,7 +45,7 @@ while True:
             f = open(text,"a")
             req_edit = c.recv(1024).decode()
             f.write(req_edit)
-            print("File edited")
+            print("FILE EDITED")
             c.send(bytes("File edited", "utf-8"))
             f.close()
         except:
@@ -57,7 +57,7 @@ while True:
         try:
             os.remove(text)
             c.send(bytes("File deleted", "utf-8"))
-            print("File deleted")
+            print("FILE DELETED")
             f.close()
         except:
             c.send(bytes("FILE NOT EXIST!!!", "utf-8"))
